@@ -20,6 +20,7 @@
   --space-900: 72px;
   --space-800: 64px;
   --space-700: 56px;
+  --space-600: 48px;
   --space-500: 40px;
   --space-400: 32px;
   --space-300: 24px;
@@ -73,6 +74,9 @@ main, header, article, footer {
 header {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .header__logo {
@@ -87,8 +91,6 @@ header {
 }
 
 .header__banner {
-  width: 100%;
-  overflow-x: hidden;
   display: grid;
   grid-template-columns: auto 304px 448px 304px auto;
   grid-template-rows: 1fr;
@@ -122,6 +124,7 @@ header {
 .banner-2 .buttons {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: var(--space-200);
 }
 .banner-2 .buttons button {
@@ -132,12 +135,20 @@ header {
 }
 .banner-2 .btn-download {
   background: var(--color-cyan-600);
+  cursor: pointer;
+}
+.banner-2 .btn-download:hover {
+  background: #71C0D4;
 }
 .banner-2 .btn-download span {
   color: var(--color-cyan-300);
 }
 .banner-2 .btn-ask {
   background: var(--color-purple-600);
+  cursor: pointer;
+}
+.banner-2 .btn-ask:hover {
+  background: #B18BDD;
 }
 
 .banner-3 {
@@ -250,15 +261,6 @@ footer {
   /*background-position-y: -20px;*/
   position: relative;
 }
-/*.footer::after {*/
-/*  content: "";*/
-/*    position: absolute;*/
-/*    top: 0;*/
-/*    left: 0;*/
-/*    width: 100%;*/
-/*    height: 100%;*/
-/*    background-color: rgba(77, 150, 168, 0.8);*/
-/*}*/
 
 footer .text-1 {
   grid-column: 2/2;
@@ -274,6 +276,10 @@ footer .btn-download-2 button {
   border: none;
   color: var(--color-white);
   background: var(--color-purple-600);
+  cursor: pointer;
+}
+footer .btn-download-2 button:hover {
+  background: #B18BDD;
 }
 
 footer .btn-download-2 button span {
@@ -281,7 +287,139 @@ footer .btn-download-2 button span {
 }
 
 @media screen and (max-width: 1200px) {
+  .header__logo {
+    padding-top: var(--space-600);
+  }
   .header__banner {
+    grid-template-columns: auto 394px 394px auto;
+    grid-template-rows: auto auto;
+  }
+  .banner-1 {
+    grid-row: 1/1;
+    grid-column: 2/2;
+  }
+  .banner-1 img {
+    transform: translateX(0);
+  }
+  .banner-3 {
+    grid-row: 1/1;
+    grid-column: 3/3;
+  }
+  .banner-3 img {
+    transform: translateX(0);
+  }
+  .banner-2 {
+    grid-row: 2/2;
+    grid-column: 2/4;
+    padding-top: var(--space-500);
+    padding-bottom: 0;
+    display: grid;
+    grid-template-columns: auto 449px auto;
+    grid-template-rows: auto auto auto;
+  }
+  .banner-2 .title {
+    grid-column: 2/2;
+    grid-row: 1/1;
+  }
+  .banner-2 .subtitle {
+    grid-column: 2/2;
+    grid-row: 2/2;
+  }
+  .banner-2 .buttons {
+    grid-column: 2/2;
+    grid-row: 3/3;
+  }
 
+  article {
+    padding: var(--space-700) 0 var(--space-800);
+  }
+  .slides {
+    gap: var(--space-300);
+  }
+  .slide {
+    width: 152px;
+    height: 160px;
+  }
+  .footer {
+    padding: var(--space-800) var(--space-400);
+    grid-template-columns: auto 504px auto;
+    grid-template-rows: auto auto auto;
+    text-align: center;
+    gap: var(--space-300);
+  }
+  .footer .text-1 {
+    grid-row: 1/1;
+    grid-column: 2/2;
+    font-size: 36px;
+  }
+  .footer .text-2 {
+    grid-row: 2/2;
+    grid-column: 2/2;
+    font-size: 16px;
+  }
+  .footer .btn-download-2 {
+    grid-row: 3/3;
+    grid-column: 2/2;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .header__banner {
+    padding: var(--space-800) 0 var(--space-400);
+    grid-template-columns: auto 208px 208px auto;
+    column-gap: 17px;
+    row-gap: var(--space-600);
+  }
+  .banner-1 img, .banner-3 img {
+    width: 100%;
+  }
+  .banner-2 {
+    grid-template-columns: auto 305px auto;
+    grid-template-rows: auto auto auto;
+    gap: var(--space-300);
+  }
+  .banner-2 .title {
+    font-size: 40px;
+  }
+  .banner-2 .subtitle {
+    font-size: 16px;
+  }
+  .banner-2 .buttons {
+    flex-direction: column;
+  }
+  article {
+    padding: var(--space-400) 0 var(--space-800);
+  }
+
+  .slides {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    gap: var(--space-200);
+  }
+  .slide {
+    width: 148px;
+    height: 144px;
+  }
+  .content {
+    width: 311px;
+  }
+  .content__subtitle {
+    font-size: 12px;
+    margin: 0 0 var(--space-200);
+  }
+  .content__title {
+    font-size: 32px;
+    margin: 0 0 var(--space-400);
+  }
+  .content__description {
+    font-size: 16px;
+  }
+
+  .footer {
+    grid-template-columns: auto auto auto;
+  }
+  .footer .text-1 {
+    font-size: 32px;
   }
 }
